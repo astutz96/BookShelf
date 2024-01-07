@@ -10,7 +10,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.bookshelf.ui.screens.BookShelfViewModel
 import com.example.bookshelf.ui.theme.BookShelfTheme
@@ -27,7 +26,8 @@ class MainActivity : ComponentActivity() {
                 ) {
                     Greeting("Android")
                     val bookShelfViewModel : BookShelfViewModel = viewModel(factory = BookShelfViewModel.Factory)
-                    bookShelfViewModel.getBooks()
+                    val volume = bookShelfViewModel.getVolume()
+                    println(volume)
                 }
             }
         }

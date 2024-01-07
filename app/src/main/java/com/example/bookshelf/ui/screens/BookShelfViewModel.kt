@@ -18,6 +18,13 @@ class BookShelfViewModel(private val bookShelfRepository: BooksRepository) : Vie
         }
     }
 
+    fun getVolume() {
+        viewModelScope.launch {
+            val volume = bookShelfRepository.getVolume()
+            println(volume)
+        }
+    }
+
     companion object {
         val Factory: ViewModelProvider.Factory = viewModelFactory {
             initializer {
