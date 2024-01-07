@@ -7,21 +7,23 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.bookshelf.BookShelfApplication
 import com.example.bookshelf.data.BooksRepository
+import com.example.bookshelf.model.Book
 import kotlinx.coroutines.launch
 
 class BookShelfViewModel(private val bookShelfRepository: BooksRepository) : ViewModel(){
 
-    fun getBooks() {
-        viewModelScope.launch {
-            val books = bookShelfRepository.getBooks()
-            println(books)
-        }
+    init {
+        getVolume()
     }
 
     fun getVolume() {
         viewModelScope.launch {
+            val test : MutableList<Book> = mutableListOf<Book>();
             val volume = bookShelfRepository.getVolume()
-            println(volume)
+            for (item in volume.items){
+                test.add(bookShelfRepository.getBook(item.id))
+            }
+            println(test)
         }
     }
 
