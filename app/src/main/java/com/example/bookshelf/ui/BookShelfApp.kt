@@ -37,7 +37,7 @@ fun BookShelfApp(){
         ) {
             //Create a ViewModel, Linking it to the AppContainer BookShelfRepository
             val bookShelfViewModel : BookShelfViewModel = viewModel(factory = BookShelfViewModel.Factory)
-            BookShelfHomeScreen(bookShelfViewModel.bookShelfUiState)
+            BookShelfHomeScreen(bookShelfViewModel.bookShelfUiState, retryAction = bookShelfViewModel::getBooks)
         }
     }
 
