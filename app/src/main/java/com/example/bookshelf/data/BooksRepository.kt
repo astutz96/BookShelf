@@ -11,14 +11,14 @@ interface BooksRepository {
 }
 
 class DefaultBooksRepository(
-    private val booksRepository: BooksApiService
+    private val booksService: BooksApiService
 ) : BooksRepository {
 
     override suspend fun getVolume(): Volume {
-        return booksRepository.getVolume()
+        return booksService.getVolume()
     }
 
     override suspend fun getBook(id : String): Book {
-        return booksRepository.getBook(id)
+        return booksService.getBook(id)
     }
 }

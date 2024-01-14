@@ -1,6 +1,5 @@
 package com.example.bookshelf.model
 
-import com.google.gson.annotations.SerializedName
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -12,5 +11,14 @@ data class Book(
 
 @Serializable
 data class VolumeInfo(
-    val title : String
+    val title : String,
+    val imageLinks : ImageLinks
+)
+
+@Serializable
+data class ImageLinks(
+    val smallThumbnail : String,
+    val thumbnail : String,
+    val small : String,
+    val medium : String
 )
